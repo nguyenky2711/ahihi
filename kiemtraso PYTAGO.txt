@@ -1,0 +1,28 @@
+#include<iostream>
+#include<math.h>
+using namespace std;
+void KiemTraSoPTG(int x)
+{
+	for (int m = 1;m < x;m++)
+	{
+		for (int n = 1;n < m;n++)
+		{
+			if (n*n + m*m == x*x)
+			{
+				cout << "(" << m << ", " << n << ", " << x << ")" << endl;
+			}
+		}
+	}
+}
+int main()
+{	
+	int p;
+	cin >> p;
+	for (int i = 2;i < p;i++)
+	{
+		KiemTraSoPTG(i);
+	}
+	
+	system("pause");
+	return 0;
+}

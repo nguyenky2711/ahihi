@@ -1,0 +1,124 @@
+#include<iostream>
+using namespace std;
+//hàm vẽ hình chữ nhật đặc có chiều cao =h với đáy =h+2
+void Ve_hinh_chu_nhat_dac(int x)
+{
+	for (int i = 1;i <= x;i++)  //vòng lặp chiều cao từ 1->h
+	{
+		for (int j = 1;j <= (x + 2);j++) //vòng lặp xuất "*" theo từng chiều cao
+		{
+			cout << " * ";
+
+		}
+		cout << endl;
+	}
+}
+//hàm vẽ tam giác đặc có chiều cao =h với đáy =2h-1
+void Ve_tam_giac_dac(int x)
+{
+	for (int i = 1;i <= x;i++) //vòng lặp chiều cao từ 1-> h
+	{
+		for (int j = 1;j <= 2 * x - 1;j++) //vòng lặp xuất "*" theo chiều cao
+		{
+			if ((j >= x- i + 1) && (j <= x + i - 1)) // nếu như nằm trong đoạn này thì xuất "*"
+			{
+				cout << "* ";
+			}
+			else //nếu nằm ngoài đoạn thì xuất " "
+			{
+				cout << "  ";
+			}
+		}
+
+		cout << endl;
+	}
+}
+//hàm vẽ hình chữ nhật rỗng có chiều cao =h với đáy =h+2
+void Ve_Hinh_chu_nhat_rong(int n)
+{
+	for (int i = 1;i <= n;i++)// vòng lặp chiêu cao từ 1->h
+	{
+		if (i == 1 || i == n) //nếu là hàng đầu tiên hoặc hàng cuối cùng
+		{
+			for (int j = 1;j <= n + 2;j++) //thì chạy vòng lặp xuất "*"
+			{
+				cout << " * ";
+			}
+		}
+		else                 // nếu là những hàng còn lại
+		{
+			for (int j = 1;j <= n + 2;j++) //vòng lặp xuất chiều rộng
+			{
+				if (j == 1 || j == n + 2) // nếu là cột đầu tiên hoặc cột cuối cùng thì xuất
+				{
+					cout << " * "; // xuất "*"
+				}
+				else // nếu nằm trong những cột còn lại xuất
+				{
+					cout << "   "; // xuất " "
+				}
+			}
+		}
+
+		cout << endl;
+	}
+}
+//hàm vẽ tam giác rỗng có chiều cao =h với đáy =2h-1
+void Ve_tam_giac_rong(int x)
+{
+	for (int i = 1;i <= x;i++) // vòng lặp chiều cao từ 1->h
+	{
+		if (i == 1 || i == x) //NẾU là hàng 1 hoặc hàng cuối thì làm:
+		{
+			for (int j = 1;j <= 2 * x - 1;j++) //vòng lặp chiều rộng
+			{
+				if ((j >= x - i + 1) && (j <= x + i - 1)) //nếu nằm trong đoạn thì xuất
+				{
+					cout << "* ";// xuất "*"
+				}
+				else //nếu nằm ngoài đoạn thì xuất
+				{
+					cout << "  "; // xuất " "
+				}
+			}
+		}
+		else // NẾU là những hàng còn lại thì làm:
+		{
+			for (int j = 1;j <= 2 * x - 1;j++) //vòng lặp chiều rộng
+			{
+				if ((j >= x - i + 1) && (j <= x + i - 1)) //nếu nằm trong đoạn thì làm:
+				{
+					if ((j == x - i + 1) || (j == x + i - 1)) //nếu là đầu mút của đoạn thì xuất
+					{
+						cout << "* "; // xuất "*"
+					}
+					else // nếu không thì xuất 
+					{
+						cout << "  "; // xuất" " //tức là làm rỗng
+					}
+				}
+				else //nếu không nằm trong đoạn thì xuất " " (nằm ngoài tam giác)
+				{
+					cout << "  ";
+				}
+			}
+		}
+		cout << endl;
+	}
+}
+int main()
+{
+	int n;
+	cout << "\nDo cao hinh can ve: ";
+	cin >> n;
+	cout << "\n\n\t\t TAM GIAC DAC CO DO CAO " << n << "\n";
+	Ve_tam_giac_dac(n);
+	cout << "\n\n\t\t TAM GIAC RONG CO DO CAO " << n << "\n";
+	Ve_tam_giac_rong(n);	
+	cout << "\n\n\t\t HINH CHU NHAT DAC DO CAO " << n << "\n";
+	Ve_hinh_chu_nhat_dac(n);
+	cout << "\n\n\t\t HINH CHU NHAT RONG DO CAO " << n << "\n";
+	Ve_Hinh_chu_nhat_rong(n);
+	system("pause");
+	return 0;
+}
