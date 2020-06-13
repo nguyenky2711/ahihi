@@ -1,0 +1,30 @@
+#include<iostream>
+#include <map>
+#include<string.h>
+using namespace std;
+int main() 
+{
+    string lama;
+    cin >> lama;
+    map<char,int> a;
+    a['X']=10;
+    a['I']=1;
+    a['V']=5;
+    //char kt=lama[i];
+    int tong=a[lama[lama.length()-1]];
+    for(int i=lama.length()-2;i>=0;i--)
+    {           
+        if(a[lama[i]]>=a[lama[i+1]])
+        {
+            tong+=a[lama[i]];
+        } else
+        {
+            tong-=a[lama[i]];
+        }
+        
+    }
+    {
+        cout<<tong;
+    }
+    return 0;
+}
